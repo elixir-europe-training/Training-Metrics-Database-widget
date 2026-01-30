@@ -43,3 +43,7 @@ are 'pie' and 'bar'. Defaults to 'pie' if not defined.
 * colors: A list of hex colors to be used for plotting. Defaults to ELIXIR colors
 * endpoint: The API endpoint to get the data from. Defaults
 to "https://tmd.elixir-europe.org/metrics"
+
+### Example usage
+
+A very simple example usage of the widget script can be seen in `example.html` and it can be previewed at https://elixir-europe-training.github.io/Training-Metrics-Database-widget/example.html
