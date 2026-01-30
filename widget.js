@@ -3,7 +3,7 @@
    * Base endpoint for question set summary statistics.
    * Consumers can override this by providing a full `endpoint` option.
    */
-  const DEFAULT_BASE_URL = 'https://tmd.elixir-europe.org/metrics/set/';
+  const DEFAULT_BASE_URL = 'https://tmd.elixir-europe.org/metrics';
   const CHART_JS_CDN = 'https://cdn.jsdelivr.net/npm/chart.js';
 
   /**

@@ -42,4 +42,4 @@ are defined, all questionSets will be returned.
 are 'pie' and 'bar'. Defaults to 'pie' if not defined.
 * colors: A list of hex colors to be used for plotting. Defaults to ELIXIR colors
 * endpoint: The API endpoint to get the data from. Defaults
-to "https://tmd.elixir-europe.org/metrics/set/"
+to "https://tmd.elixir-europe.org/metrics"
