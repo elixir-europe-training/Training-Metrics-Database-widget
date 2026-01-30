@@ -41,7 +41,7 @@
    * Normalise the API payload into an array of questions with aggregated counts.
    *
    * @param {unknown} payload
-   * @returns {Array<{ id: string, label: string, aggregated: Record<string, number> }>}
+   * @returns {Array<{ id: string, label: string, aggregated: {id: string, label: string, value: number}[] }>}
    */
   function normalisePayload(payload) {
     const values = Array.isArray(payload?.values) ? payload.values : [];
@@ -52,12 +52,14 @@
         const options = Array.isArray(entry?.options) ? entry.options : [];
         const aggregated = options
           .filter((option) => option?.id)
-          .reduce((map, option) => {
-            const optionLabel = option.id;
+          .map((option) => {
             const count = Number(option?.count ?? 0);
-            map[optionLabel] = Number.isFinite(count) ? count : 0;
-            return map;
-          }, {});
+            return {
+              id: option.id,
+              label: option.label,
+              value: Number.isFinite(count) ? count : 0,
+            }
+          })
 
         return {
           id,
@@ -180,14 +182,14 @@
    * Render a single question chart inside the container.
    *
    * @param {HTMLElement} container
-   * @param {{ id: string, label: string, aggregated: Record<string, number> }} question
+   * @param {{ id: string, label: string, aggregated: {id: string, label: string, value: number}[] }} question
    * @param {'bar' | 'pie'} chartType
    * @param {string[] | null} colors
    * @returns {Chart}
    */
   function renderQuestionChart(container, question, chartType, colors) {
-    const labels = Object.keys(question.aggregated);
-    const values = labels.map((label) => question.aggregated[label]);
+    const labels = question.aggregated.map((q) => q.label);
+    const values = question.aggregated.map((q) => q.value);
 
     const wrapper = document.createElement('section');
     wrapper.className = 'tmd-widget-question';
