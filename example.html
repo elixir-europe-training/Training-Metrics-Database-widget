@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Training Metrics Databse widgets | Example</title>
+    <meta property="og:title" content="Training Metrics Databse widgets">
+    <meta property="og:locale" content="en_US">
+    <link rel="canonical" href="https://elixir-europe-training.github.io/Training-Metrics-Database-widget/example.html">
+    <meta property="og:url" content="https://elixir-europe-training.github.io/Training-Metrics-Database-widget/example.html">
+    <meta property="og:site_name" content="Training-Metrics-Database-widget">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="Training Metrics Databse widgets">
+    <link rel="stylesheet" href="/Training-Metrics-Database-widget/assets/css/style.css?v=c13dd5b4fb03537524b564848753db9652fd8ffb">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      <h1 id="training-metrics-databse-widgets">Training Metrics Databse widgets</h1>
+
+      <p>This example show widgets using the three main question sets, quality, impact and demographic. Metrics from all the questions, of the questions sets, are fetched and rendered as one widget per question.</p>
+
+      <div id="tmd-widget-container"><div>
+    </div>
+    <script src="https://elixir-europe-training.github.io/Training-Metrics-Database-widget/widget.js"></script>
+    <script>
+      TMDWidget({
+        container: "#tmd-widget-container",
+        questionSets: [
+            "quality",
+            "impact",
+            "demographic"
+        ],
+        endpoint: "https://tmd-test.elixir-hpc.si/metrics"
+      }).catch((error) => {
+        console.error('TMDWidget failed to initialise', error);
+      });
+    </script>
+  </body>
+</html>
