@@ -13,7 +13,7 @@
     questionSets: null,
     questions: null,
     chartType: 'pie',
-    dataScope: 'all',
+    dataset: null,
     endpoint: null,
     colors: null,
   };
@@ -133,9 +133,9 @@
     }
 
 
-    // Include data scope
-    if (settings.dataScope && !url.searchParams.has('data_scope')) {
-      url.searchParams.set('data_scope', settings.dataScope);
+    // Include dataset
+    if (settings.dataset) {
+      url.searchParams.set('dataset', settings.dataset);
     }
 
     return url.toString();
@@ -282,7 +282,7 @@
    *
    * @param {Object} options
    * @param {string | HTMLElement} options.container - Selector or element that will host the widget.
-   * @param {'all' | 'node'} [options.dataScope] - Scope of data to request; currently only `all` is supported.
+   * @param {UUID} [options.dataset] - Optional dataset id used to access node specific data
    * @param {string[]} [options.questionSets] - Optional list of question sets to request (passed through to the API).
    * @param {string[]} [options.questions] - Optional list of question slugs to request (passed through to the API).
    * @param {'bar' | 'pie'} [options.chartType] - Desired chart type.
