@@ -33,6 +33,7 @@ The following parameters are customizable for the widget:
 
 * questions: A list of question slug ids for displaying. You can find the question slug in the admin panel in the TMD. If defined, questions are displayed in the order they are inputed.
 * questionSets: A list of questionSets for displaying. If defined, all questions in the questionSet will be displayed. questionSets are listed by their slug.
+* dataset: An optional UUID specifying a dataset from which the API will get node specific data.
 
 Either questionSets can be set, or questions, not both. In case of both
 being defined, questionSets take precedence. If neither questionSets nor questions
